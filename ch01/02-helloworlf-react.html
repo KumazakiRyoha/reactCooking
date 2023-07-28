@@ -16,10 +16,8 @@
             2.1 将es6转换成es5
     -->
     <div>Header</div>
-    <div id="app">app</div>
+    <div id="app"></div>
     <div>Footer</div>
-
-
 
     <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
 
@@ -29,10 +27,29 @@
 
     <!--使用jsx，并且希望script中的jsx代码被解析，必须给script添加一个属性-->
     <script type="text/babel">
-        ReactDOM.render(<h2>hello world</h2>,document.getElementById("app"))
+        class App extends React.Component {
+            constructor() {
+                super();
+                this.state = {
+                    message: "Hello World"
+                }
+                this.btnClick = this.btnClick.bind(this);
+            }
+            render() {
+                return (
+                    <div>
+                        <h2>{this.state.message}</h2>
+                        <button onClick={this.btnClick}>改变文本</button>
+                    </div>
+                )
+            }
+            btnClick(){
+                this.setState({
+                    message: "Hello React"
+                })
+            }
+        }
+        ReactDOM.render(<App/>,document.getElementById("app"));
     </script>
-
-
-
 </body>
 </html>
