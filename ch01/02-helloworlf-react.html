@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 开发React必须依赖三个库
+        1. react: 包含react所有得核心代码
+        2. react-dom react渲染在不同平台需要的核心代码
+            2.1 react-dom 针对web和native所做的事不同，
+                在web端，它会将jsx渲染成真实的dom
+                在native端，它会将jsx渲染成原生的控件
+        3. babel.js 将jsx转换成react代码的工具
+            2.1 将es6转换成es5
+    -->
+    <div>Header</div>
+    <div id="app">app</div>
+    <div>Footer</div>
+
+
+
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <!--使用jsx，并且希望script中的jsx代码被解析，必须给script添加一个属性-->
+    <script type="text/babel">
+        ReactDOM.render(<h2>hello world</h2>,document.getElementById("app"))
+    </script>
+
+
+
+</body>
+</html>
