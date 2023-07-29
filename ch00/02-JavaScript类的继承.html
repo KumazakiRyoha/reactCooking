@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+        class Person {
+
+            // 构造方法
+            constructor(name,age) {
+                this.name = name;
+                this.age = age
+            }
+
+            running() {
+                console.log("*******")
+                console.log(this.age,this.name)
+            }
+        }
+
+        class Student {
+            constructor(name,age,sno) {
+                this.name = name;
+                this.age = age;
+                this.sno = sno;
+            }
+        }
+
+        class Teacher {
+            constructor(name,age,title) {
+                this.name = name;
+                this.age = age;
+                this.title = title;
+            }
+        }
+
+    </script>
+
+
+</body>
+</html>
