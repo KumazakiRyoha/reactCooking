@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div id="app"></div>
+
+    <script src="../react/http_unpkg.com_react@18_umd_react.production.min.js" crossOrigin></script>
+    <script src="../react/http_unpkg.com_react-dom@18_umd_react-dom.production.min.js" crossorigin></script>
+    <script src="../react/http_unpkg.com_babel-standalone@6_babel.js"></script>
+
+    <script type="text/babel">
+        class App extends React.Component {
+
+            constructor() {
+                super();
+
+                this.state = {
+                    message: "Hello World",
+                    movies: ["H2","Touch","Rough","Hunter","Naruto"]
+                }
+            }
+
+            render(){
+
+                let liArray = [];
+                for (let i = 0; i < this.state.movies.length; i++) {
+                    let movie = this.state.movies[i];
+                    liArray.push(<li key={i}>{movie}</li>)
+                }
+
+                return (
+                    <div>
+                        <h2>电影列表1</h2>
+                        <ul>
+                            {liArray}
+                        </ul>
+
+                        <h2>电影列表1</h2>
+                        <ul>
+                            {
+                                this.state.movies.map((item, index) => {
+                                    return <li key={index}>{item}</li>
+                                })
+                            }
+                        </ul>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<App/>, document.getElementById("app"))
+    </script>
+</body>
+</html>

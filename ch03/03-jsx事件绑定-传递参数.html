@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app"></div>
+<!--<button class="btn">按钮</button>-->
+<!--<script>-->
+<!--    document.getElementsByClassName("btn")[0].addEventListener("click",(e) => {-->
+<!--        console.log(e)-->
+<!--    })-->
+<!--</script>-->
+
+<script src="../react/http_unpkg.com_react@18_umd_react.production.min.js" crossOrigin></script>
+<script src="../react/http_unpkg.com_react-dom@18_umd_react-dom.production.min.js" crossorigin></script>
+<script src="../react/http_unpkg.com_babel-standalone@6_babel.js"></script>
+
+<script type="text/babel">
+    class App extends React.Component {
+        constructor() {
+            super();
+            this.state = {
+                movies: ["A","B","C","D"]
+            }
+        }
+
+        render() {
+            return (
+                <div>
+                    <button onClick={this.btnClick}>按钮</button>
+                    <ul>
+                        {
+                            this.state.movies.map((item,index,arr) => {
+                                return (
+                                    <li onClick={(e) => {
+                                        this.liClick(e,item,index)
+                                    }}>{item}</li>
+                                )
+                            })
+                        }
+                    </ul>
+                </div>
+            )
+        }
+
+        btnClick(event) {
+            console.log("按钮发生了点击", event)
+        }
+        liClick(event,item,index){
+            console.log("li发生了点击",event,item,index)
+        }
+    }
+
+    ReactDOM.render(<App/>, document.getElementById("app"))
+</script>
+</body>
+</html>
