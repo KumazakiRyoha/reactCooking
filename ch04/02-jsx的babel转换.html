@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app"></div>
+
+<script src="../react/http_unpkg.com_react@18_umd_react.production.min.js" crossOrigin></script>
+<script src="../react/http_unpkg.com_react-dom@18_umd_react-dom.production.min.js" crossorigin></script>
+<script src="../react/http_unpkg.com_babel-standalone@6_babel.js"></script>
+
+<script type="text/babel">
+    class App extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {}
+        }
+
+        render() {
+            // jsx -> createElement函数 -> ReactElement（对象树）-> ReactDom.render -> 真实DOM
+            // ReactNative jsx -> createElement函数 -> ReactElement（对象树）-> ReactDom.render -> 原生控件
+
+            // 为什么使用虚拟DOMM？
+            // 1. 难以跟踪状态 2. 性能较低
+            var classObj = (
+                <div>
+                    <div className="header">
+                        <h1 title="标题">我是标题</h1>
+                    </div>
+                    <div className="content">
+                        <h2>我是页面内容</h2>
+                        <button>按钮</button>
+                        <button>+1</button>
+                        <a href="https://www.google.com">google一下</a>
+                    </div>
+                    <div className="footer">
+                        <p>我是尾部的内容</p>
+                    </div>
+                </div>
+            )
+            console.log(classObj)
+            return classObj
+        }
+    }
+
+    ReactDOM.render(<App/>, document.getElementById("app"))
+</script>
+</body>
+</html>
