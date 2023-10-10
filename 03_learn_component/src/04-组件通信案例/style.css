@@ -1,0 +1,21 @@
+.tab-control {
+    display: flex;
+    height: 44px;
+    line-height: 44px;
+
+}
+
+.tab-item {
+    flex: 1;
+    text-align: center;
+    font-family: "Microsoft YaHei UI", serif;
+}
+
+.tab-item.active {
+    color: red;
+}
+
+.tab-item span.active {
+    padding: 5px 8px;
+    border-bottom: 3px solid red;
+}
