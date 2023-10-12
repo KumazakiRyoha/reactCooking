@@ -25,7 +25,6 @@ function Profile(props) {
                 <li>设置1</li>
                 <li>设置2</li>
                 <li>设置3</li>
-                <li>设置4</li>
             </ul>
         </div>
     )
