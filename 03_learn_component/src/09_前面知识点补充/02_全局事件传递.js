@@ -1,9 +1,22 @@
 import React, {Component, PureComponent} from 'react';
+import {EventEmitter} from "events";
 
-import React, {Component} from 'react';
+const eventBus = new EventEmitter();
 
-class Home extends Component
-{
+class Home extends Component {
+
+    componentDidMount() {
+        eventBus.addListener("sayHello",this.handleSayHelloList)
+    }
+
+    componentWillUnmount() {
+        eventBus.removeAllListeners("sayHello",this.handleSayHelloList)
+    }
+
+    handleSayHelloList (args1,args2) {
+        console.log(args1,args2)
+    }
+
     render()
     {
         return (
@@ -13,9 +26,6 @@ class Home extends Component
         );
     }
 }
-export default Home;
-
-import React, {Component} from 'react';
 
 class Profile extends Component {
     render()
@@ -23,12 +33,15 @@ class Profile extends Component {
         return (
             <div>
                 Profile
+                <button onClick={e => this.emmitEvent()}>点击</button>
             </div>
         );
     }
-}
 
-export default Profile;
+    emmitEvent() {
+        eventBus.emit("sayHello","hello home",123)
+    }
+}
 
 class App extends Component
 {
