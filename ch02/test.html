@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body onload="bodyLoad()">
+<div id="B1">
+  <h1 style="color: green;">GeeksforGeeks</h1>
+
+  <p>A Computer Science Portal for Geeks</p>
+
+</div>
+<script>
+
+  // Body onload
+  function bodyLoad() {
+    alert("Alert from body_onload");
+  }
+
+  // Window onload
+  window.onload = function winLoad() {
+    alert("Alert from window_onload");
+    if (document.getElementById("B1") != null) {
+      alert("Content from body: "
+              + document.getElementById("B1").innerText);
+    } else {
+      alert("Failed to find B1");
+    }
+  }
+</script>
+</body>
+</html>
